@@ -42,7 +42,7 @@
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
         #root { min-height: 100vh; }
         .loading-screen {
-            position: fixed;
+            position: absolute;
             inset: 0;
             background: #020617;
             display: flex;
@@ -63,15 +63,17 @@
   }
 }
 </script>
+    <!-- Reliability fix: use esm.sh/run to handle TSX transpilation directly in the browser -->
     <script type="module" src="https://esm.sh/run"></script>
 </head>
 <body>
     <div id="root">
+        <!-- This screen is automatically removed when React mounts -->
         <div class="loading-screen">
-            <div class="animate-pulse text-indigo-500 font-black text-2xl tracking-tighter uppercase">Portal X</div>
+            <div class="animate-pulse text-indigo-500 font-black text-3xl tracking-tighter uppercase">Portal X</div>
         </div>
     </div>
-    <!-- Setting index.tsx as the primary entry point -->
+    <!-- Single Consolidated Entry Point -->
     <script type="text/tsx" src="index.tsx"></script>
 </body>
 </html>
