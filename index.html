@@ -45,10 +45,13 @@
   }
 }
 </script>
+    <!-- The 'run' script allows the browser to transpile and run .tsx files on the fly, 
+         which fixes the MIME type issues on static hosts like GitHub Pages. -->
+    <script type="module" src="https://esm.sh/run"></script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- This module script is the entry point that boots the React application -->
-    <script type="module" src="index.tsx"></script>
+    <!-- Changed type to 'text/tsx' so the esm.sh/run loader picks it up and transpiles it properly -->
+    <script type="text/tsx" src="index.tsx"></script>
 </body>
 </html>
