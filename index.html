@@ -5,33 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortalX Unblocked</title>
-    <!-- Tailwind Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind 3.4.15 Play CDN -->
+    <script src="https://cdn.tailwindcss.com/3.4.15"></script>
+    <script>
+      // This is the "installation" of the tailwind configuration for the browser runtime
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              indigo: {
+                500: '#6366f1',
+                600: '#4f46e5',
+              }
+            }
+          }
+        }
+      }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
             margin: 0;
             padding: 0;
         }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-        #root {
-            min-height: 100vh;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        #root { min-height: 100vh; }
     </style>
     <script type="importmap">
 {
@@ -45,13 +51,12 @@
   }
 }
 </script>
-    <!-- The 'run' script allows the browser to transpile and run .tsx files on the fly, 
-         which fixes the MIME type issues on static hosts like GitHub Pages. -->
+    <!-- The loader allows us to run .tsx directly in the browser -->
     <script type="module" src="https://esm.sh/run"></script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- Changed type to 'text/tsx' so the esm.sh/run loader picks it up and transpiles it properly -->
+    <!-- Using type="text/tsx" tells the esm.sh loader to handle the transpilation manually, bypassing server MIME restrictions -->
     <script type="text/tsx" src="index.tsx"></script>
 </body>
 </html>
