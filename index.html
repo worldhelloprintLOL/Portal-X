@@ -39,7 +39,7 @@
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-router-dom": "https://esm.sh/react-router-dom@7.1.3?external=react,react-dom",
+    "react-router-dom": "https://esm.sh/react-router-dom@7.1.3?deps=react@19.0.0,react-dom@19.0.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/"
   }
@@ -48,7 +48,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- This script tag was missing, which is why the page was blank -->
+    <!-- This module script is the entry point that boots the React application -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>
