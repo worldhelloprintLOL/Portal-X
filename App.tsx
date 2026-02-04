@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import GameDetail from './pages/GameDetail';
-import Categories from './pages/Categories';
+import Navbar from './components/Navbar.tsx';
+import Home from './pages/Home.tsx';
+import GameDetail from './pages/GameDetail.tsx';
+import Categories from './pages/Categories.tsx';
 
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
