@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortalX Unblocked</title>
-    <!-- Tailwind 3.4.15 Play CDN -->
+    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
     <script>
-      // This is the "installation" of the tailwind configuration for the browser runtime
+      // Production-style configuration for the Tailwind engine in the browser
       tailwind.config = {
         theme: {
           extend: {
@@ -19,6 +19,10 @@
               indigo: {
                 500: '#6366f1',
                 600: '#4f46e5',
+                950: '#0a0c1b',
+              },
+              slate: {
+                950: '#020617',
               }
             }
           }
@@ -28,16 +32,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #0f172a;
+            background-color: #020617;
             color: #f8fafc;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
         #root { min-height: 100vh; }
+        /* Prevent layout shift during load */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #020617;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
     </style>
     <script type="importmap">
 {
@@ -51,12 +66,16 @@
   }
 }
 </script>
-    <!-- The loader allows us to run .tsx directly in the browser -->
+    <!-- Reliable TSX loader for browser-side transpilation -->
     <script type="module" src="https://esm.sh/run"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <!-- Using type="text/tsx" tells the esm.sh loader to handle the transpilation manually, bypassing server MIME restrictions -->
+    <div id="root">
+        <div class="loading-screen">
+            <div class="animate-pulse text-indigo-500 font-black text-2xl tracking-tighter uppercase">Portal X</div>
+        </div>
+    </div>
+    <!-- The application entry point -->
     <script type="text/tsx" src="index.tsx"></script>
 </body>
 </html>
